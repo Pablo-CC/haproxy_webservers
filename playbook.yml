@@ -3,3 +3,22 @@
   become: True
   roles:
           - role: haproxy_pablo
+          
+- name: Configure webserver with nginx
+  hosts: webservers
+  become: True
+  roles:
+          - role: nginx_pablo
+
+
+- name: Configure private network
+  hosts: all
+  become: True
+  tasks:
+          - name: Copy interface configuration files
+            copy: >
+                  src=files/{{ ansible_hostname }}_eth1.cfg
+                  dest=/etc/network/interfaces.d/eth1.cfg
+
+          - name: Enable interface
+            command: "ifup eth1"
