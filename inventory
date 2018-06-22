@@ -1,6 +1,7 @@
-load-balancer ansible_ssh_host=127.0.0.1 ansible_ssh_port=2222
+load-balancer ansible_ssh_host=127.0.0.1 ansible_ssh_port=2200
+
 
 [webservers]
-webserver1 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2200
-webserver2 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2201
+webserver1 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2201
+webserver2 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2202
 
