@@ -1,0 +1,5 @@
+- name: Deploy HAProxy on load balancer
+  hosts: load-balancer
+  become: True
+  roles:
+          - role: haproxy_pablo
