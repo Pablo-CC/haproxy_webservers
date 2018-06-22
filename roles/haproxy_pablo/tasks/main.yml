@@ -4,6 +4,9 @@
 - name: Install HAProxy
   apt: name=haproxy state=present
 
+- name: Create stats socket directory
+  file: path=/run/haproxy state=directory
+
 - name: Copy HAProxy's configuration file
   template: src=haproxy.cfg.j2 dest=/etc/haproxy/haproxy.cfg
 

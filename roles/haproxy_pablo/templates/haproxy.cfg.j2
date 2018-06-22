@@ -2,7 +2,7 @@ global
 	log /dev/log	local0
 	log /dev/log	local1 notice
 	chroot {{ haproxy_chroot }}
-	stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
+	stats socket /run/haproxy/admin.sock mode 660 level admin
 	stats timeout 30s
 	user {{ haproxy_user }}
 	group {{ haproxy_group }}
@@ -22,7 +22,7 @@ defaults
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
 
-listen
+listen  firstbalancing
 	bind {{ haproxy_bind_address }}:{{ haproxy_bind_port }}
 	mode {{ haproxy_mode }}
 	balance {{ haproxy_balance_mode }}

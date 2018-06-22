@@ -8,7 +8,7 @@ haproxy_mode: 'http'
 haproxy_chroot: '/var/lib/haproxy'
 
 #Frontend settings
-haproxy_bind_address: '10.0.2.15'
+haproxy_bind_address: '*'
 haproxy_bind_port: '80'
 
 #Backend settings
