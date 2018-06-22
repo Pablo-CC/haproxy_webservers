@@ -1,0 +1,12 @@
+---
+# tasks file for haproxy_pablo
+#
+- name: Install HAProxy
+  apt: name=haproxy state=present
+
+- name: Copy HAProxy's configuration file
+  template: src=haproxy.cfg.j2 dest=/etc/haproxy/haproxy.cfg
+
+- name: Restart HAProxy
+  service: name=haproxy state=restarted
+
