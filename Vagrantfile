@@ -14,7 +14,7 @@ config.ssh.insert_key = false
   host.vm.hostname = "load-balancer"
   host.vm.box = "ubuntu/trusty64"
   host.ssh.username = "vagrant"
-  
+  host.vm.network "forwarded_port", guest: 80, host: 8080 
   host.vm.provider :virtualbox do |vb|
    vb.customize ["modifyvm", :id, "--nic2", "intnet"]
   end
