@@ -10,6 +10,6 @@
 - name: Copy HAProxy's configuration file
   template: src=haproxy.cfg.j2 dest=/etc/haproxy/haproxy.cfg
 
-- name: Restart HAProxy
-  service: name=haproxy state=restarted
+- name: Initiate haproxy
+  command: "haproxy -f /etc/haproxy/haproxy.cfg"
 
